@@ -645,7 +645,7 @@ class Block(PandasObject, libinternals.Block):
         values = self.values
         refs: BlockValuesRefs | None
         if deep:
-            values = values.copy()
+            values = values.copy(order="K")
             refs = None
         else:
             refs = self.refs
